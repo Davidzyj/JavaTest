@@ -1,0 +1,20 @@
+
+// 数据库连接池
+druid-1.0.9.jar
+
+// jsp
+javax.servlet.jsp.jstl.jar
+jstl-impl.jar
+
+// JDBC
+mysql-connector-java-8.0.29.jar
+
+
+commons-beanutils-1.8.0.jar
+
+// JDBCTemplate
+commons-logging-1.2.jar
+spring-beans-5.1.10.RELEASE.jar
+spring-core-5.1.10.RELEASE.jar
+spring-jdbc-5.1.10.RELEASE.jar
+spring-tx-5.1.10.RELEASE.jar
