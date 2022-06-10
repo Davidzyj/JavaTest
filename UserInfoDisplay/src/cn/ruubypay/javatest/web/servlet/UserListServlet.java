@@ -26,7 +26,6 @@ public class UserListServlet extends HttpServlet {
         // 3. 转发到list.jsp
         request.getRequestDispatcher("/list.jsp").forward(request, response);
 
-        System.out.println("122122112");
     }
 
     @Override

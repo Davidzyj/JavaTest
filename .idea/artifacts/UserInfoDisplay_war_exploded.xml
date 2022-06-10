@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="UserInfoDisplay" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-beanutils-1.8.0" />
+          <element id="library" level="project" name="commons-logging-1.2" />
+          <element id="library" level="project" name="javax.servlet.jsp.jstl" />
+        </element>
       </element>
     </root>
   </artifact>
