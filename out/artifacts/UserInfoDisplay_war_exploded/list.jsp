@@ -31,6 +31,33 @@
 <body>
 <div class="container">
     <h3 style="text-align: center">用户信息列表</h3>
+    <div style="float: left;">
+
+        <form class="form-inline" action="${pageContext.request.contextPath}/findUserByPageServlet" method="post">
+            <div class="form-group">
+                <label for="exampleInputName2">姓名</label>
+                <input type="text" name="name" value="${condition.name[0]}" class="form-control" id="exampleInputName2" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName3">籍贯</label>
+                <input type="text" name="address" value="${condition.address[0]}" class="form-control" id="exampleInputName3" >
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail2">邮箱</label>
+                <input type="text" name="email" value="${condition.email[0]}" class="form-control" id="exampleInputEmail2"  >
+            </div>
+            <button type="submit" class="btn btn-default">查询</button>
+        </form>
+
+    </div>
+
+    <div style="float: right;margin: 5px;">
+
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加联系人</a>
+        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
+
+    </div>
     <table border="1" class="table table-bordered table-hover">
         <tr class="success">
             <th>编号</th>
