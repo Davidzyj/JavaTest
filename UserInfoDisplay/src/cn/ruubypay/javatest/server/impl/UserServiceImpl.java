@@ -2,6 +2,7 @@ package cn.ruubypay.javatest.server.impl;
 
 import cn.ruubypay.javatest.dao.UserDao;
 import cn.ruubypay.javatest.dao.impl.UserDaoImpl;
+import cn.ruubypay.javatest.domain.PageBean;
 import cn.ruubypay.javatest.domain.User;
 import cn.ruubypay.javatest.server.UserService;
 
@@ -57,5 +58,39 @@ public class UserServiceImpl implements UserService {
                 dao.deleteUser(Integer.parseInt(id));
             }
         }
+    }
+
+    @Override
+    public PageBean<User> findUserByPage(String _currentPage, String _rows) {
+
+        int currentPage = Integer.parseInt(_currentPage);
+        int rows = Integer.parseInt(_rows);
+
+        // 下面这个判断用来解决当前端使用页面的<< 使页数小于1的时候的容错处理
+        // 这个项目的实现方式是前端控制样式，后端控制逻辑 (个人感觉这个逻辑写在这里不太好，我感觉这个逻辑应该前置，也就是放在前端，这样可以减少请求的发送)
+        if (currentPage <= 0) {
+            currentPage = 1;
+        }
+
+        // 1. 创建一个空的PageBean
+        PageBean<User> pb = new PageBean<>();
+        pb.setCurrentPage(currentPage);
+        pb.setRows(rows);
+
+        // 调用dao查询记录总数
+        int totalCount = dao.findTotalCount();
+        pb.setTotalCount(totalCount);
+
+        // 调用dao查询list集合
+        // 计算开始的索引
+        int start = ( currentPage - 1 ) * rows;
+        List<User> list = dao.findByPage(start, rows);
+        pb.setList(list);
+
+        // 计算总页码
+        int totalPage = totalCount % rows == 0 ? (totalCount / rows) : (totalCount / rows) + 1;
+        pb.setTotalPage(totalPage);
+
+        return pb;
     }
 }

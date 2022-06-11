@@ -18,4 +18,18 @@ public interface UserDao {
     User findById(int id);
 
     void updateUser(User user);
+
+    /**
+     * 查询总记录数
+     * @return
+     */
+    int findTotalCount();
+
+    /**
+     * 分页查询每页记录
+     * @param start
+     * @param rows
+     * @return
+     */
+    List<User> findByPage(int start, int rows);
 }

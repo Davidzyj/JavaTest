@@ -1,5 +1,6 @@
 package cn.ruubypay.javatest.server;
 
+import cn.ruubypay.javatest.domain.PageBean;
 import cn.ruubypay.javatest.domain.User;
 
 import java.util.List;
@@ -31,4 +32,12 @@ public interface UserService {
     void updateUser(User user);
 
     void delSelectedUsers(String[] ids);
+
+    /**
+     * 分页查询
+     * @param currentPage
+     * @param rows
+     * @return
+     */
+    PageBean<User> findUserByPage(String currentPage, String rows);
 }
