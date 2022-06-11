@@ -23,4 +23,6 @@ public interface UserService {
      * @param user
      */
     void addUser(User user);
+
+    void deleteUser(String id);
 }

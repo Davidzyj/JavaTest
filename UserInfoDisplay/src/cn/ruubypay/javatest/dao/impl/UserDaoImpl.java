@@ -3,6 +3,7 @@ package cn.ruubypay.javatest.dao.impl;
 import cn.ruubypay.javatest.dao.UserDao;
 import cn.ruubypay.javatest.domain.User;
 import cn.ruubypay.javatest.util.JDBCUtils;
+import jdk.nashorn.internal.runtime.ConsString;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -39,5 +40,11 @@ public class UserDaoImpl implements UserDao {
         String sql = "insert into user values(null, ?, ? ,?, ?, ?, ?, null, null)";
         template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail());
 
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        String sql = "delete from user where id = ?";
+        template.update(sql, id);
     }
 }
