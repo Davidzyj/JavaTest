@@ -36,10 +36,35 @@
         }
 
         window.onload = function () {
+
             // 给删除选中按钮添加单击事件
             document.getElementById("delSelected").onclick = function () {
-                // 表单提交
-                document.getElementById("checkForm").submit();
+
+                var isHaveSelect = false;
+                var cbs = document.getElementsByName("uid");
+                for (var i = 0; i < cbs.length; i++) {
+                    if (cbs[i].checked == true) {
+                        isHaveSelect = true;
+                        break;
+                    }
+                }
+
+                if (isHaveSelect == true) {
+                    if (confirm("您确定要删除吗？")) {
+                        // 表单提交
+                        document.getElementById("checkForm").submit();
+                    }
+                }
+
+
+            }
+
+            // 全选功能
+            document.getElementById("firstCb").onclick = function () {
+                var cbs = document.getElementsByName("uid");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = this.checked;
+                }
             }
         }
     </script>
@@ -77,7 +102,7 @@
     <form id="checkForm" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover">
             <tr class="success">
-                <th><input type="checkbox"></th>
+                <th><input type="checkbox" id="firstCb"></th>
                 <th>编号</th>
                 <th>姓名</th>
                 <th>性别</th>
