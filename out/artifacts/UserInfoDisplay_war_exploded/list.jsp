@@ -141,16 +141,16 @@
                 <li>
                 </c:if>
 
-                   <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pb.currentPage - 1}&rows=5" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                   <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pb.currentPage - 1}&rows=5&name=${condition.name[0]}&address=${condition.adress[0]}&email=${condition.email[0]}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
                 </li>
 
                 <c:forEach begin="1" end="${pb.totalPage}" var="i">
                     <c:if test="${pb.currentPage == i}">
-                        <li class="active"><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5">${i}</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5&name=${condition.name[0]}&address=${condition.adress[0]}&email=${condition.email[0]}">${i}</a></li>
                     </c:if>
 
                     <c:if test="${pb.currentPage != i}">
-                        <li><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5">${i}</a></li>
+                        <li><a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=5&name=${condition.name[0]}&address=${condition.adress[0]}&email=${condition.email[0]}">${i}</a></li>
                     </c:if>
 
                 </c:forEach>
@@ -166,7 +166,7 @@
 
              <c:if test="${(pb.currentPage + 1) <= pb.totalPage}">
             <li>
-                <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pb.currentPage + 1}&rows=5" aria-label="Next">
+                <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pb.currentPage + 1}&rows=5&name=${condition.name[0]}&address=${condition.adress[0]}&email=${condition.email[0]}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

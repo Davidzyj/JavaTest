@@ -4,6 +4,7 @@ import cn.ruubypay.javatest.domain.PageBean;
 import cn.ruubypay.javatest.domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     /**
@@ -34,10 +35,11 @@ public interface UserService {
     void delSelectedUsers(String[] ids);
 
     /**
-     * 分页查询
+     * 分页条件查询
      * @param currentPage
      * @param rows
+     * @param condition
      * @return
      */
-    PageBean<User> findUserByPage(String currentPage, String rows);
+    PageBean<User> findUserByPage(String currentPage, String rows, Map<String, String[]> condition);
 }
